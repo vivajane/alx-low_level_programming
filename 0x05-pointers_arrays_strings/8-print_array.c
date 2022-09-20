@@ -2,12 +2,13 @@
 #include "main.h"
 
 /**
- * print array - prints n elements of an array of intergers
+ * print_array - prints n elements of an array of intergers
  * followed by a new line
  * @a: array to be printed
  * @n: number of elements to print
  */
 void print_array(int *a, int n)
+
 {
 int i;
 
