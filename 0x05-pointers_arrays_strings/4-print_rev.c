@@ -16,9 +16,9 @@ len++;
 }
 s--;
 
-for (i = len; i > 1; 1--)
+for (i = len; i > 1; i--)
 {
-	-putchar(*s);
+	_putchar(*s);
 	s--;
 }
 
