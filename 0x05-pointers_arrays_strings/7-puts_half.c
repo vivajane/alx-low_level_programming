@@ -1,26 +1,24 @@
 #include "main.h"
+#include "2-strlen.c"
 
 /**
- * print_rev - reverse a string value
- * @s: print string in reverse
+ * puts_half - puts half of int
+ *
+ * @str: string to split
  */
-void print_rev(char *s)
+void puts_half(char *str)
 {
-int len = 1;
 int i;
+int oE = 0;
 
-while (*s != '\0')
+if (_strlen(str) % 2 != 0)
 {
-len++;
-++s;
-}
-s--;
-
-for (i = len; i > 1; i--)
-{
-	_putchar(*s);
-	s--;
+	oE += 1;
 }
 
-_putchar('\n');
+for (i = (_strlen(str) + oE) / 2; i < _strlen(str); i++)
+{
+_putchar(str[i]);
+}
+_putchar('/n');
 }
