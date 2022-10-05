@@ -1,43 +1,44 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * argstostr - gives array of args
- * @ac: argument count
- * @av: array of arguments
- * Return: char value
+ * _strlen - find length of a string
+ * @s: string
+ * Return: int
  */
 
+int _strlen(char *s)
+{
+int size = 0;
+for (; s[size] != '\0'; size++)
+;
+return (size);
+}
+
+/**
+ * *argstostr - description
+ * @ac: int
+ * @av: arguments
+ * Return: string
+ */
 char *argstostr(int ac, char **av)
 {
-int size;
+int i = 0, nc = 0, j = 0, cmpt = 0;
 char *s;
-int i;
-int j;
-int k;
 if (ac == 0 || av == NULL)
 return (NULL);
-for (i = 0; i < ac; i++)
-{
-for (j = 0; av[i][j] != '\0'; j++)
-size++;
-}
-size += (ac + 1);
-s = malloc(sizeof(char) * size);
-if (s == NULL)
+for (; i < ac; i++, nc++)
+nc += _strlen(av[i]);
+s = malloc(sizeof(char) * nc + 1);
+if (s == 0)
 return (NULL);
-k = 0;
 for (i = 0; i < ac; i++)
 {
-for (j = 0; av[i][j] != '\0'; j++)
-{
-s[k] = av[i][j];
-k++;
+for (j = 0; av[i][j] != '\0'; j++, cmpt++)
+s[cmpt] = av[i][j];
+s[cmpt] = '\n';
+cmpt++;
 }
-s[k] = '\n';
-k++;
-}
-s[k] = '\0';
+s[cmpt] = '\0';
 return (s);
 }
